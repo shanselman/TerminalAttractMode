@@ -11,6 +11,7 @@ param(
     [Alias('GifFolderPath')]
     $Path
 )
+$ErrorActionPreference = "Stop"
 
 #if(!(Get-Module -Name MSTerminalSettings -ListAvailable) )
 if(-not (Get-Module -Name MSTerminalSettings -ListAvailable) )
