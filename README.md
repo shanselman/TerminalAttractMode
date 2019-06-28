@@ -1,7 +1,7 @@
 # TerminalAttractMode
 Given a Profile and folder name, rotates the background of a Terminal with animated gifs
 
-This is the greatest PowerShell script ever written, today.
+This is the greatest PowerShell script ever written, today. It uses Chris Ducks' lovely Module https://github.com/gpduck/MSTerminalSettings
 
 Run it in another tab using the new open source [Windows Terminal](https://www.hanselman.com/blog/YouCanNowDownloadTheNewOpenSourceWindowsTerminal.aspx) and call
 
