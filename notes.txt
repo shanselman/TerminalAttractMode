@@ -1,0 +1,19 @@
+"backgroundImage" : "C:/Users/Scott/Desktop/magic.gif",
+"backgroundImageOpacity" : 0.69999998807907104,
+"backgroundImageStretchMode" : "uniformToFill",
+
+TerminatAttractMode -name FOO -folder BAR
+
+"useAcrylic" : false
+
+find profile by name
+set useAcrylic = false
+
+foreach gif in folder
+    set backgroundImage
+    set backgroundImageOpacity to some known const
+    set backgroundImageStretchMode to some known const
+    save json (don't screw it up)
+    sleep(30*1000)
+
+
