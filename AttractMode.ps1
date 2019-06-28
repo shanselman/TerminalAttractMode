@@ -9,7 +9,13 @@ param(
     [Parameter(Mandatory = $true, Position = 1)]
     [string]
     [Alias('GifFolderPath')]
-    $Path
+    $Path,
+
+    [Parameter(Mandatory = $false, Position = 2)]
+    [int]
+    [Alias('Secs')]
+    $seconds = 5
+
 )
 $ErrorActionPreference = "Stop"
 
@@ -44,6 +50,6 @@ while ($true) {
 
         $terminalProfile | Set-MSTerminalProfile 
         
-        Start-Sleep -Seconds 5
+        Start-Sleep -Seconds $seconds
     }
 }
