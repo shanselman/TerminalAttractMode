@@ -1,5 +1,5 @@
 # TerminalAttractMode
-Given a Profile and folder name, rotates the background of a Terminal
+Given a Profile and folder name, rotates the background of a Terminal with animated gifs
 
 This is the greatest PowerShell script ever written, today.
 
