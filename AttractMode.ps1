@@ -41,7 +41,7 @@ while ($true) {
         if(!$terminalProfile.backgroundImageOpacity){
             $terminalProfile | Add-Member -NotePropertyName backgroundImageOpacity -NotePropertyValue 1
         }
-        $terminalProfile.backgroundImageOpacity = 0.40
+        $terminalProfile.backgroundImageOpacity = 0.60
 
         if(!$terminalProfile.backgroundImageStretchMode){
             $terminalProfile | Add-Member -NotePropertyName backgroundImageStretchMode -NotePropertyValue ""
