@@ -33,10 +33,12 @@ while ($true) {
 
         $terminalProfile.useAcrylic = $false
 
+        $whiteNoiseGif = Resolve-Path -Path "./whitenoise.gif"
+
         if(!$terminalProfile.backgroundImage){
             $terminalProfile | Add-Member -NotePropertyName backgroundImage -NotePropertyValue ""
         }
-        $terminalProfile.backgroundImage = $_.FullName
+        $terminalProfile.backgroundImage = $whiteNoiseGif.Path
 
         if(!$terminalProfile.backgroundImageOpacity){
             $terminalProfile | Add-Member -NotePropertyName backgroundImageOpacity -NotePropertyValue 1
@@ -47,6 +49,12 @@ while ($true) {
             $terminalProfile | Add-Member -NotePropertyName backgroundImageStretchMode -NotePropertyValue ""
         }
         $terminalProfile.backgroundImageStretchMode = "stretchToFill"
+
+        $terminalProfile | Set-MSTerminalProfile 
+        
+        Start-Sleep -Milliseconds 300
+
+        $terminalProfile.backgroundImage = $_.FullName
 
         $terminalProfile | Set-MSTerminalProfile 
         
