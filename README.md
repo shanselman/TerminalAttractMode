@@ -6,7 +6,7 @@ This is the greatest PowerShell script ever written, today. It uses Chris Ducks'
 Run it in another tab using the new open source [Windows Terminal](https://www.hanselman.com/blog/YouCanNowDownloadTheNewOpenSourceWindowsTerminal.aspx) and call
 
 ```
-./AttractMode.ps -name "profile name" -path "c:\temp\trouble" -secs 5
+./AttractMode.ps1 -name "profile name" -path "c:\temp\trouble" -secs 5
 ```
 
 where name is a Name (has to be unique) of one of your Terminal profiles in profiles.json and Path is a path to a folder with a bunch of animated gifs
