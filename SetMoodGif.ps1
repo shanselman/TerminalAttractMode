@@ -11,31 +11,18 @@ param(
 )
 $ErrorActionPreference = "Stop"
 
-#if(!(Get-Module -Name MSTerminalSettings -ListAvailable) )
+# This script depends on MSTerminalSettings. Install it if it's not available.
 if(-not (Get-Module -Name MSTerminalSettings -ListAvailable) )
 {
     Install-Module MSTerminalSettings
 }
 
-$terminalProfile = Get-MSTerminalProfile -Name $Name
-
-$terminalProfile.useAcrylic = $false
-
-if(!$terminalProfile.backgroundImage){
-    $terminalProfile | Add-Member -NotePropertyName backgroundImage -NotePropertyValue ""
+# This hashtable will represent the parameters of Set-MSTerminalProfile.
+$splat = @{
+    useAcrylic = $false
+    backgroundImage = $Path
+    backgroundImageOpacity = 0.60
+    backgroundImageStretchMode = "fill"
 }
-$terminalProfile.backgroundImage = $path
 
-if(!$terminalProfile.backgroundImageOpacity){
-    $terminalProfile | Add-Member -NotePropertyName backgroundImageOpacity -NotePropertyValue 1
-}
-$terminalProfile.backgroundImageOpacity = 0.60
-
-if(!$terminalProfile.backgroundImageStretchMode){
-    $terminalProfile | Add-Member -NotePropertyName backgroundImageStretchMode -NotePropertyValue ""
-}
-$terminalProfile.backgroundImageStretchMode = "stretchToFill"
-
-$terminalProfile | Set-MSTerminalProfile 
-
-
+Get-MSTerminalProfile -Name $Name | Set-MSTerminalProfile @splat
