@@ -22,7 +22,7 @@ $splat = @{
     useAcrylic = $false
     backgroundImage = $Path
     backgroundImageOpacity = 0.60
-    backgroundImageStretchMode = "fill"
+    backgroundImageStretchMode = "uniformToFill"
 }
 
 Get-MSTerminalProfile -Name $Name | Set-MSTerminalProfile @splat

@@ -29,7 +29,7 @@ if(-not (Get-Module -Name MSTerminalSettings -ListAvailable) )
 $splat = @{
     useAcrylic = $false
     backgroundImageOpacity = 0.40
-    backgroundImageStretchMode = "fill"
+    backgroundImageStretchMode = "uniformToFill"
 }
 
 while ($true) {
