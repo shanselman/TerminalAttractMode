@@ -12,3 +12,5 @@ Run it in another tab using the new open source [Windows Terminal](https://www.h
 where name is a Name (has to be unique) of one of your Terminal profiles in profiles.json and Path is a path to a folder with a bunch of animated gifs
 
 ![EPIC](https://user-images.githubusercontent.com/2892/60372165-8cfa0480-99b0-11e9-8e80-c37ab964f202.gif)
+
+We are also keeping an eye on @JustinGrote's work over here https://gist.github.com/JustinGrote/2fb8e60ce70b3a05a94debf6bfc6b057
