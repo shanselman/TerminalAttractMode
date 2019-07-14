@@ -18,12 +18,13 @@ param(
 
     [Parameter(Mandatory = $false, Position = 3)]
     [int]
-    [Alias('MakeWindowMove')]
+    [Alias('Move')]
     $Travel = 0
 )
 
 $ErrorActionPreference = "Stop"
 $timerMS = 0;
+$ctrlTabMS = 0;
 $gifposition = 0;
 $LoopMS = 30;
 
@@ -37,8 +38,8 @@ $ScreenWidth = $Monitors[0].Bounds.Width
 $ScreenHeight = $Monitors[0].Bounds.Height
 
 # TODO - query the Window Size and use that for the window boundary math, then stop adjusting the height and width here
-$WindowWidth = $ScreenWidth * .8
-$WindowHeight = $ScreenHeight * .7
+$WindowWidth = $ScreenWidth * .7
+$WindowHeight = $ScreenHeight * .6
 $MaxPositionX = $ScreenWidth - $WindowWidth
 $MaxPositionY = $ScreenHeight - $WindowHeight
 $PositionX = 100
@@ -86,6 +87,8 @@ while ($true) {
     }
 
     $timerMS += $LoopMS;
+    $ctrlTabMS += $LoopMS;
+
     if ($timerMS -ge ($Seconds * 1000))
     {
         # Grab the Profile right before we set it so we don't accidently stomp on other changes. 
@@ -101,6 +104,16 @@ while ($true) {
         # Splat the parameters into Set-MSTerminalProfile.
         $terminalProfile | Set-MSTerminalProfile @splat
         $timerMS = 0;
+    }
+
+    # occasionally change tabs (default is 1min (5secs * 12))
+    if ($ctrlTabMS -ge ($Seconds * 12 * 1000))
+    {
+        # send ctrl+t message
+        Add-Type -AssemblyName System.Windows.Forms
+        [System.Windows.Forms.SendKeys]::SendWait('^{TAB}');
+        
+        $ctrlTabMS = 0;
     }
 }
 
